@@ -12,7 +12,7 @@ class home_screen extends StatefulWidget {
 
 class _home_screenState extends State<home_screen> {
 
-  homeProvider? ht,hf;
+  homeProvider? oo,pp;
   Welcome? w1;
 
   @override
@@ -24,8 +24,8 @@ class _home_screenState extends State<home_screen> {
   @override
   Widget build(BuildContext context) {
 
-    ht = Provider.of<homeProvider>(context,listen: true);
-    hf = Provider.of<homeProvider>(context,listen: false);
+    oo = Provider.of<homeProvider>(context,listen: true);
+    pp = Provider.of<homeProvider>(context,listen: false);
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
@@ -50,26 +50,26 @@ class _home_screenState extends State<home_screen> {
                     Container(
                       color: Colors.red,
                       child: TextButton(onPressed: () {
-                        hf!.change("in",);
+                        pp!.change("in",);
                       },
                           child: Text("in",style: TextStyle(color: Colors.white,fontSize: 17),)),
                     ),
                     Container(
                       color: Colors.red,
                       child: TextButton(onPressed: () {
-                        hf!.change("ca");
+                        pp!.change("ca");
                       }, child: Text("ca",style: TextStyle(color: Colors.white,fontSize: 17))),
                     ),
                     Container(
                       color: Colors.red,
                       child: TextButton(onPressed: () {
-                        hf!.change("au");
+                        pp!.change("au");
                       }, child: Text("au",style: TextStyle(color: Colors.white,fontSize: 17))),
                     ),
                     Container(
                       color: Colors.red,
                       child: TextButton(onPressed: () {
-                        hf!.change("us");
+                        pp!.change("us");
                       }, child: Text("us",style: TextStyle(color: Colors.white,fontSize: 17))),
                     ),
                   ],
@@ -107,7 +107,7 @@ class _home_screenState extends State<home_screen> {
                   }
                   return CircularProgressIndicator();
                 },
-                  future: hf!.getNews(ht!.selectedCountry),
+                  future: pp!.getNews(oo!.selectedCountry),
                 )
               ],
             ),
